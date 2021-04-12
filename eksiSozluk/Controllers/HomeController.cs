@@ -24,7 +24,7 @@ namespace eksiSozluk.Controllers
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your cooontact pageee.";
+            ViewData["Message"] = "Your .";
 
             return View();
         }

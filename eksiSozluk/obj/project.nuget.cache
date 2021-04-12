@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "un/ee7vopu/U3p1VUKfdrpR+ZRDAWfdUAdCOcFE4TXX2UMOTfJYzjRZbj7NGMreQtbhIvee2WqBhuPyJJHt/cw==",
+  "dgSpecHash": "fb52ZHDojcxgRkGNGrUTqc2fvR74UFI/gM5DVbhmKwSSWSU+O1EFnD8eFzitn8akhW2YekxSOTjKQ32D9kH5Zw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\GENC\\source\\repos\\eksiSozluk\\eksiSozluk\\eksiSozluk.csproj",
+  "projectFilePath": "C:\\Users\\GENC\\Source\\Repos\\OurProjectt\\eksiSozluk\\eksiSozluk.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GENC\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\GENC\\.nuget\\packages\\microsoft.aspnetcore\\2.1.1\\microsoft.aspnetcore.2.1.1.nupkg.sha512",
