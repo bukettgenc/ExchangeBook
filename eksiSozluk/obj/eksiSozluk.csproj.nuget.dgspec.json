@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\GENC\\Source\\Repos\\OurProjectt\\eksiSozluk\\eksiSozluk.csproj": {}
+    "C:\\Users\\GENC\\source\\repos\\eksiSozluk\\eksiSozluk\\eksiSozluk.csproj": {}
   },
   "projects": {
-    "C:\\Users\\GENC\\Source\\Repos\\OurProjectt\\eksiSozluk\\eksiSozluk.csproj": {
+    "C:\\Users\\GENC\\source\\repos\\eksiSozluk\\eksiSozluk\\eksiSozluk.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\GENC\\Source\\Repos\\OurProjectt\\eksiSozluk\\eksiSozluk.csproj",
+        "projectUniqueName": "C:\\Users\\GENC\\source\\repos\\eksiSozluk\\eksiSozluk\\eksiSozluk.csproj",
         "projectName": "eksiSozluk",
-        "projectPath": "C:\\Users\\GENC\\Source\\Repos\\OurProjectt\\eksiSozluk\\eksiSozluk.csproj",
+        "projectPath": "C:\\Users\\GENC\\source\\repos\\eksiSozluk\\eksiSozluk\\eksiSozluk.csproj",
         "packagesPath": "C:\\Users\\GENC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\GENC\\Source\\Repos\\OurProjectt\\eksiSozluk\\obj\\",
+        "outputPath": "C:\\Users\\GENC\\source\\repos\\eksiSozluk\\eksiSozluk\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\GENC\\AppData\\Roaming\\NuGet\\NuGet.Config",
