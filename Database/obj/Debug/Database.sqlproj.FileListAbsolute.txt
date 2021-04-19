@@ -1,0 +1,6 @@
+C:\Users\GENC\source\repos\eksiSozluk\Database\bin\Debug\Database.dacpac
+C:\Users\GENC\source\repos\eksiSozluk\Database\bin\Debug\Database.dll
+C:\Users\GENC\source\repos\eksiSozluk\Database\bin\Debug\Database.pdb
+C:\Users\GENC\source\repos\eksiSozluk\Database\obj\Debug\Database.sqlprojAssemblyReference.cache
+C:\Users\GENC\source\repos\eksiSozluk\Database\obj\Debug\Database.dll
+C:\Users\GENC\source\repos\eksiSozluk\Database\obj\Debug\Database.pdb

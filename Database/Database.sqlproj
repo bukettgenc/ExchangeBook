@@ -60,10 +60,14 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="Snapshots" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\__EFMigrationsHistory.sql" />
     <Build Include="dbo\Tables\HomePages.sql" />
     <Build Include="dbo\Tables\Users.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Snapshots\Database_20210417_01-25-43.dacpac" />
   </ItemGroup>
 </Project>
