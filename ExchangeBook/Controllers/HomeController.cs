@@ -10,11 +10,19 @@ namespace ExchangeBook.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        Context db=new Context();
+        public IActionResult Index(int id)
         {
+            List<MyBook> bookList=db.MyBooks.Where(x => x.UserId != id && x.IsDeleted==false).ToList();
+            ViewBag.bookList = bookList;
             return View();
         }
-
+        public IActionResult Profile(int id)
+        {
+            List<MyBook> bookList = db.MyBooks.Where(x => x.UserId == id && x.IsDeleted == false).ToList();
+            ViewBag.bookList = bookList;
+            return View();
+        }
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

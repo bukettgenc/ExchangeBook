@@ -39,6 +39,8 @@ namespace ExchangeBook.Migrations
 
                     b.Property<string>("BookAuthor");
 
+                    b.Property<string>("BookImage");
+
                     b.Property<string>("BookName");
 
                     b.Property<bool>("IsDeleted");

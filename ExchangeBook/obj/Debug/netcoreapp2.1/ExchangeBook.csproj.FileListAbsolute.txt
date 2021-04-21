@@ -22,10 +22,8 @@ C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
-C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
-C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\ExchangeBook.RazorTargetAssemblyInfo.cache
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\ExchangeBook.RazorTargetAssemblyInfo.cs
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\ExchangeBook.Views.pdb
@@ -33,3 +31,5 @@ C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Excha
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\ExchangeBook.pdb
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\ExchangeBook.genruntimeconfig.cache
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\ExchangeBook.csproj.CopyComplete
+C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Message\WriteMessage.cshtml.g.cs
+C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Home\Profile.cshtml.g.cs
