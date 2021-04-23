@@ -18,6 +18,7 @@ namespace ExchangeBook.Models
 
         public ICollection<MyBook> MyBooks { get; set; }
         public ICollection<Review> Reviews { get; set; }
+        public ICollection<Opinion> Opinions { get; set; }
 
     }
 }

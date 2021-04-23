@@ -23,7 +23,21 @@ namespace ExchangeBook.Controllers
             ViewBag.bookList = bookList;
             return View();
         }
-        public IActionResult About()
+    
+        public IActionResult MyFav(int id)
+        {
+            List<MyFav> list = db.MyFavs.Where(x => x.UserId==id).ToList();
+            List<MyBook> favList=new List<MyBook>();
+            foreach (var item in list)
+            {
+                MyBook book = db.MyBooks.Where(t => t.BookId == item.BookId).SingleOrDefault();
+                favList.Add(book);
+            }
+            ViewBag.FavList = favList;
+
+            return View();
+        }
+        public IActionResult GiveYourOpinion()
         {
             ViewData["Message"] = "Your application description page.";
 

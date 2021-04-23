@@ -181,7 +181,7 @@ nav.main-menu {
 .submit_bt{
      font-size: 14pt; 
      color: #ffffff;
-     background-color: #69c934;
+     background-color: saddlebrown;
      border: 0px;
      height: 50px;
      padding: 0px 20px;
@@ -223,29 +223,30 @@ nav.main-menu {
 .banner_section{ 
      width: 100%; 
      float: left;
-     background-image: url(../images/banner.png);
+     background-image: url(../images/booksWhite.jpg);
      height: auto;  
-     background-size: 100%;
-     background-repeat: no-repeat;
+     background-size: 55%;
+     background-repeat: repeat;
 }
 
 .banner_taital{
      width: 100%;
      float: left;
-     color: #ffffff;
+     color: saddlebrown;
      font-size: 44pt;
      text-align: center;
 }
 
-.browse_text{
-     width: 100%;
-     float: left;
-     font-size: 14pt;
-     color: #cbcbcb;
-     text-align: center;
-     padding-bottom: 50px;
-     font-weight: 500;
-     margin-left: 0px;
+.browse_text {
+    width: 100%;
+    float: left;
+    font-size: 14pt;
+    color: saddlebrown;
+
+    text-align: center;
+    padding-bottom: 50px;
+    font-weight: 500;
+    margin-left: 0px;
 }
 
 .banner_bt{
@@ -257,7 +258,7 @@ nav.main-menu {
 .read_bt{
      width: 20%;
      height: 50px;
-     background-color: #69c934;
+     background-color: saddlebrown;;
      color: #ffffff;
      border: 0px;
      font-size: 17pt;
@@ -279,7 +280,7 @@ nav.main-menu {
      width: 100%;
      float: left;
      color: #b2b1b1;
-     border: 1px solid #69c934;
+     border: 1px solid saddlebrown;
      padding: 10px 15px;
      font-size: 14pt;
 }
@@ -288,7 +289,7 @@ nav.main-menu {
      width: 90%;
      float: left;
      color: #ffffff;
-     background-color: #69c934;
+     background-color: saddlebrown;
      font-size: 14pt;
      border: 0px;
      height: 55px;
@@ -377,7 +378,7 @@ nav.main-menu {
      text-align: center;
      font-size: 14pt;
      color: #fcfcfc;
-     background-color: #4bc714;
+     background-color: saddlebrown;
      border: 0px;
      display: block;
 }
@@ -412,7 +413,7 @@ nav.main-menu {
      float: left;
      text-align: center;
      font-size: 32pt;
-     color: #4bc714;
+     color: saddlebrown;
      padding-top: 35px;
 }
 
@@ -430,7 +431,7 @@ nav.main-menu {
     text-align: center;
     font-size: 15pt;
     color: #fcfcfc;
-    background-color: #4bc714;
+    background-color: saddlebrown;
     border: 0px;
     display: block;
     height: 50px;
@@ -447,7 +448,7 @@ nav.main-menu {
 .about_section {
     width: 100%;
     float: left;
-    background-image: url(../images/about-banner.png);
+    background-image: url(../images/bookss.jpg);
     height: auto;
     padding: 110px 0px;
     background-size: 100%;
@@ -459,7 +460,7 @@ nav.main-menu {
     font-size: 44pt;
     text-align: center;
     color: #ffffff;
-    border-bottom: 4px solid#4bc714;
+    border-bottom: 4px solid saddlebrown;
 }
 
 .lorem_text{
@@ -497,7 +498,7 @@ nav.main-menu {
      width: 96%;
      float: left;
      font-size: 17px;
-     color: #4bc714;
+     color: saddlebrown;
      text-align: center;
 }
 
@@ -512,7 +513,7 @@ nav.main-menu {
 }
 
 .carousel-indicators .active {
-    background-color: #052501;
+    background-color: saddlebrown;
 }
 .carousel-indicators li {
     position: relative;
@@ -523,7 +524,7 @@ nav.main-menu {
     margin-right: 3px;
     margin-left: 3px;
     text-indent: -999px;
-    background-color: #6dcf4b;
+    background-color: burlywood;
 }
 
 .carousel {
@@ -594,7 +595,7 @@ nav.main-menu {
      float: left;
      font-size: 24pt;
      color: #ffffff;
-     border-bottom: 4px solid#3e7f21;
+     border-bottom: 4px solid saddlebrown;
      margin-bottom: 26px;
 }
 
@@ -615,7 +616,7 @@ nav.main-menu {
      float: left;
      font-size: 24pt;
      color: #ffffff;
-     border-bottom: 4px solid#3e7f21;
+     border-bottom: 4px solid saddlebrown;
      margin-bottom: 26px;
 }
 
@@ -644,7 +645,7 @@ nav.main-menu {
 .submit_text{
      width: 60%;
      float: left;
-     background-color: #3e7f21;
+     background-color: saddlebrown;
      color: #fbf5f5;
      border-radius: 5px;
      padding: 8px 15px;
@@ -655,7 +656,7 @@ nav.main-menu {
 .submit_textMessageInput {
     width: 100%;
     float: left;
-    background-color: #3e7f21;
+    background-color: saddlebrown;
     color: #fbf5f5;
     border-radius: 5px;
     padding: 8px 15px;
@@ -697,7 +698,7 @@ nav.main-menu {
 .copyright{
      width: 100%;
      float: left;
-     background-color: #388417;
+     background-color: saddlebrown;
 }
 
 .copyright_text{
@@ -715,7 +716,7 @@ nav.main-menu {
 #main_slider .carousel-control-prev, #main_slider .carousel-control-next {
     width: 62px;
     height: 60px;
-    background: #4bc714;
+    background: saddlebrown;
     opacity: 1;
     font-size: 30px;
     color: #fff;

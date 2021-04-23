@@ -1,0 +1,51 @@
+﻿@{
+    Context db = new Context();
+    List<Opinion> opinionList= db.Opinions.ToList();
+    int counter = 0;
+}
+<div class="layout_padding clients_section">
+    <div class="container">
+        <div id="client_slide" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#client_slide" data-slide-to="0" class="active"></li>
+                <li data-target="#client_slide" data-slide-to="1"></li>
+                <li data-target="#client_slide" data-slide-to="2"></li>
+            </ol>
+         
+            <div class="carousel-inner">
+
+                @foreach (var item in opinionList)
+                            {
+                                User user = db.Users.Where(x => x.UserId == item.UserId).SingleOrDefault();
+                                if (counter == 0)
+                                {<div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h1 class="promoted_text"> <span style="border-bottom: 5px solid saddlebrown;">BİZİM HAKKIMIZDAKİ GÖRÜŞLERİNİZ</span></h1>
+                                    <div class="client_img"><img src="~/adsiter/images/client-img.png"></div>
+                                    <h1 class="client_text">@user.UserName</h1>
+                                    <p class="long_text">@item.YourOpinion</p>
+                                </div>
+                            </div>
+                        </div>
+                        counter = 1;
+                    }
+                    else
+                    { <div class="carousel-item ">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h1 class="promoted_text"> <span style="border-bottom: 5px solid saddlebrown;">BİZİM HAKKIMIZDAKİ GÖRÜŞLERİNİZ</span></h1>
+                                    <div class="client_img"><img src="~/adsiter/images/client-img.png"></div>
+                                    <h1 class="client_text">@user.UserName</h1>
+                                    <p class="long_text">@item.YourOpinion</p>
+                                </div>
+                            </div>
+                        </div>}
+
+
+                }
+            </div> 
+            
+        </div>
+    </div>
+</div>

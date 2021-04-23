@@ -17,5 +17,6 @@ namespace ExchangeBook.Models
         public DbSet<MyFav> MyFavs { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<BookType> BookTypes { get; set; }
+        public DbSet<Opinion> Opinions { get; set; }
     }
 }

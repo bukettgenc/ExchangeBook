@@ -1,5 +1,6 @@
 ﻿@{
     Layout = null;
+    List<MyBook> favList = ViewBag.FavList;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -67,42 +68,60 @@
         </div>
     </div>
     <!-- header section end -->
-    <!-- banner section start -->
-    <div class="layout_padding banner_section">
+    <!-- section PROMOTED start -->
+    <div class=" layout_padding promoted_sectipon">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h1 class="banner_taital"><b>Kitap için anlaş!</b></h1>
-                    <p class="browse_text"><b>Aşağıdaki paylaş butonuna basarak kendi profilinizdeki kitapları mesaj olarak karşı tarafa iletebilirsiniz</b></p>
-                    <div class="banner_bt">
-                        <button class="read_bt">Paylaş</button>
-                    </div>
+            <h1 class="promoted_text"><span style="border-bottom: 5px solid saddlebrown;">FAVORİLERİM</span></h1>
+            <div class="images_main">
+                <div class="row">
+                    @foreach (var item in favList)
+                    {
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            <div class="images"><img width="500px" height="325px" src=@Url.Content(item.BookImage) style="width: 100%;"></div>
+
+                            <button class="eye-icon">Favorilere ekle<span class="like-icon"><img width="25px" src="~/adsiter/images/like-icon.png"></span></button>
+                            <div class="numbar_text"><span class="like-icon">@item.BookName</span></div>
+                            <div class="numbar_text"><span class="like-icon">@item.BookAuthor</span></div>
+                        </div>
+                    }
+
                 </div>
             </div>
         </div>
     </div>
-    <!-- banner section end -->
-  
-  
+    <!-- section PROMOTED end -->
+    @Html.Partial("../Shared/_Opinion")
+
     <!-- contact section start -->
     <div class="contact_section layout_padding">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-6">
                     <div class="input_main">
                         <div class="container">
                             <form action="/action_page.php">
+                                <div class="form-group">
+                                    <input type="text" class="email-bt" placeholder="Your Name" name="Name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="email-bt" placeholder="Email" name="Email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="email-bt" placeholder="Phone" name="Email">
+                                </div>
                                 <form action="/action_page.php">
-
-                                    <div class="submit_textMessageRight">bhjnkm</div><br /><br /><br />
                                     <div class="form-group">
-                                        <textarea class="massage-bt" placeholder="Mesajım..." rows="5" id="comment" name="text"></textarea>
+                                        <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="text"></textarea>
                                     </div>
                                 </form>
-                            </form>            
-                            <button class="submit_textMessageInput ">Mesaj Gönder</button>
-
+                                <button class="submit_text">Submit</button>
+                            </form>
                         </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="map-responsive">
+                        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" width="600" height="450" frameborder="0" style="border:0; width: 100%;" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>

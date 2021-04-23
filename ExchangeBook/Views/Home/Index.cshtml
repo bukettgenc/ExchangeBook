@@ -37,11 +37,11 @@
 </head>
 <body>
     <!-- header section start -->
-    <div class="header_section">
+    <div class="header_section"> 
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-lg-3">
-                    <div class="logo"><a href="index.html"><img src="~/adsiter/images/logo.png"></a></div>
+                    <div class="logo"><a href="index.html"><img width="100px" src="~/adsiter/images/logo.png"></a></div>
                 </div>
                 <div class="col-sm-6">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -51,9 +51,10 @@
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
                                 <a class="nav-item nav-link" href="/Home/Index">Anasayfa</a>
-                                <a class="nav-item nav-link" href="index.html">Profilim</a>
-                                <a class="nav-item nav-link" href="browse ads.html">Favorilerim</a>
-                                <a class="nav-item nav-link" href="about.html">Mesajlarım</a>
+                                <a class="nav-item nav-link" href="/Home/Profile">Profilim</a>
+                                <a class="nav-item nav-link" href="/Home/MyFav">Favorilerim</a>
+                                <a class="nav-item nav-link" href="/Message/WriteMessage">Mesajlarım</a>
+                                <a class="nav-item nav-link" href="clients.html">Çıkış</a>
                                 <a class="nav-item nav-link" href="clients.html">Çıkış</a>
                             </div>
                         </div>
@@ -61,7 +62,7 @@
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="search_main">
-                        <button class="submit_bt"><a href="#"><span class="doctor"><img src="~/adsiter/images/doctor-icon.png"></span>Submit ads</a></button>
+                        <button class="submit_bt"><a href="/Home/GiveYourOpinion">Görüşlerini bildir</a></button>
                     </div>
                 </div>
             </div>
@@ -73,8 +74,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1 class="banner_taital">Tek bir kitap,bir çok insan</h1>
-                    <p class="browse_text">Hadi sende istediğin kitabı ara ve değiş tokuş yap!</p>
+                    <h1 class="banner_taital"><b>Tek bir kitap,birçok insan</b></h1>
+                    <p class="browse_text"><b>Hadi sende istediğin kitabı ara ve değiş tokuş yap!</b></p>
                     <div class="banner_bt">
                         <button class="read_bt">Bilgi Al</button>
                     </div>
@@ -107,15 +108,15 @@
                         <button class="search_bt">Ara</button>
                     </div>
                 </div>
-                <div class="fashion_menu">
-                    <ul>
-                        <li class="active"><a href="#">Roman</a></li>
-                        <li><a href="#">Çocuk kitapları</a></li>
-                        <li><a href="#">Şiir</a></li>
-                        <li><a href="#">Hikaye</a></li>
-                        <li><a href="#">Deneme</a></li>
-                    </ul>
-                </div>
+                @*<div class="fashion_menu">
+                        <ul>
+                            <li class="active"><a href="#">Roman</a></li>
+                            <li><a href="#">Çocuk kitapları</a></li>
+                            <li><a href="#">Şiir</a></li>
+                            <li><a href="#">Hikaye</a></li>
+                            <li><a href="#">Deneme</a></li>
+                        </ul>
+                    </div>*@
             </div>
         </div>
     </div>
@@ -123,19 +124,19 @@
     <!-- section PROMOTED start -->
     <div class=" layout_padding promoted_sectipon">
         <div class="container">
-            <h1 class="promoted_text"><span style="border-bottom: 5px solid #4bc714;">İLANDAKİ KİTAPLAR</span></h1>
+            <h1 class="promoted_text"><span style="border-bottom: 5px solid saddlebrown;">İLANDAKİ KİTAPLAR</span></h1>
             <div class="images_main">
                 <div class="row">
                     @foreach (var item in bookList)
                     {
-                    <div class="col-sm-6 col-md-6 col-lg-3">
-                        <div class="images"><img src=@Url.Content(item.BookImage) style="width: 100%;"></div>
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            <div class="images"><img width="500px" height="325px" src=@Url.Content(item.BookImage) style="width: 100%;"></div>
 
-                        <button class="eye-icon">Favorilere ekle<span class="like-icon"><img src="~/adsiter/images/like-icon.png"></span></button>
-                        <div class="numbar_text"><span class="like-icon">@item.BookName</span></div>
-                        <div class="numbar_text"><span class="like-icon">@item.BookAuthor</span></div>
-                        <button class="mobile_bt"><a href="/Message/WriteMessage">Sahibine Mesaj At</a></button>
-                    </div>
+                            <button class="eye-icon" onclick="location.href='@Url.Action("Profile", "Home")';return false;">Favorilere ekle<span class="like-icon"><img width="25px;" src="~/adsiter/images/like-icon.png"></span></button>
+                            <div class="numbar_text"><span class="like-icon">@item.BookName</span></div>
+                            <div class="numbar_text"><span class="like-icon">@item.BookAuthor</span></div>
+                            <button class="mobile_bt"><a href="/Message/WriteMessage">Sahibine Mesaj At</a></button>
+                        </div>
                     }
 
                 </div>
@@ -146,7 +147,7 @@
     <!-- section POPULAR STORES start -->
     <div class="layout_padding popular_section">
         <div class="container">
-            <h1 class="popular_taital"><span style="border-bottom: 5px solid #4bc714;">EN GÜVENİLİR SEÇİLENLER</span></h1>
+            <h1 class="popular_taital"><span style="border-bottom: 5px solid saddlebrown;">EN GÜVENİLİR SEÇİLENLER</span></h1>
             <div id="main_slider" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -206,54 +207,8 @@
         </div>
     </div>
     <!-- about section end -->
-    <!-- client section start -->
-    <div class="layout_padding clients_section">
-        <div class="container">
-            <div id="client_slide" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#client_slide" data-slide-to="0" class="active"></li>
-                    <li data-target="#client_slide" data-slide-to="1"></li>
-                    <li data-target="#client_slide" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <h1 class="promoted_text"> <span style="border-bottom: 5px solid #4bc714;">BİZİM HAKKIMIZDAKİ GÖRÜŞLERİNİZ</span></h1>
-                                <div class="client_img"><img src="~/adsiter/images/client-img.png"></div>
-                                <h1 class="client_text">JHON DUE</h1>
-                                <p class="adiser_text">(adiser)</p>
-                                <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <h1 class="promoted_text">CLIENTS <span style="border-bottom: 5px solid #4bc714;">REVIEW</span></h1>
-                                <div class="client_img"><img src="~/adsiter/images/client-img.png"></div>
-                                <h1 class="client_text">JHON DUE</h1>
-                                <p class="adiser_text">(adiser)</p>
-                                <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <h1 class="promoted_text">CLIENTS <span style="border-bottom: 5px solid #4bc714;">REVIEW</span></h1>
-                                <div class="client_img"><img src="~/adsiter/images/client-img.png"></div>
-                                <h1 class="client_text">JHON DUE</h1>
-                                <p class="adiser_text">(adiser)</p>
-                                <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- client section end -->
+    @Html.Partial("../Shared/_Opinion")
+
     <!-- contact section start -->
     <div class="contact_section layout_padding">
         <div class="container-fluid">

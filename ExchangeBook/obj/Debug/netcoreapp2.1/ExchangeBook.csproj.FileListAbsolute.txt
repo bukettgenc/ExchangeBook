@@ -33,3 +33,6 @@ C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Excha
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\ExchangeBook.csproj.CopyComplete
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Message\WriteMessage.cshtml.g.cs
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Home\Profile.cshtml.g.cs
+C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Home\MyFav.cshtml.g.cs
+C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Home\GiveYourOpinion.cshtml.g.cs
+C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Opinion.cshtml.g.cs
