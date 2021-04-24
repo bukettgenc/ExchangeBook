@@ -264,7 +264,9 @@ nav.main-menu {
      font-size: 17pt;
      margin-bottom: 100px;
 }
-
+.read_bt a:hover {
+    color: #000;
+}
 .search_box{
      width: 100%;
      float: left;
@@ -275,7 +277,6 @@ nav.main-menu {
      position: relative;
      box-shadow: 0px 0px 8px 0px;
 }
-
 .email_boton{
      width: 100%;
      float: left;
@@ -294,6 +295,9 @@ nav.main-menu {
      border: 0px;
      height: 55px;
 }
+    .search_bt a:hover {
+        color: #000;
+    }
 .fashion_menu{
      width: 100%;
      float: left;
@@ -376,7 +380,7 @@ nav.main-menu {
      width: 60%;
      margin: 0 auto;
      text-align: center;
-     font-size: 14pt;
+     font-size: 12pt;
      color: #fcfcfc;
      background-color: saddlebrown;
      border: 0px;
@@ -463,14 +467,15 @@ nav.main-menu {
     border-bottom: 4px solid saddlebrown;
 }
 
-.lorem_text{
-     width: 100%;
-     float: left;
-     font-size: 13pt;
-     color: #ffffff;
-     text-align: center;
-     padding-top: 20px;
-     font-weight: 500;
+.lorem_text {
+    width: 100%;
+    float: left;
+    font-size: 13pt;
+    color: #ffffff;
+    background-color: saddlebrown;
+    text-align: center;
+    padding-top: 20px;
+    font-weight: 500;
 }
 
 .clients_section{
@@ -656,6 +661,17 @@ nav.main-menu {
 .submit_textMessageInput {
     width: 100%;
     float: left;
+    background-color: saddlebrown;
+    color: #fbf5f5;
+    border-radius: 5px;
+    padding: 8px 15px;
+    margin-top: 20px;
+    border: 0px;
+    font-size: 14pt;
+}
+.submit_textMessageJr {
+    width: 10%;
+    float: right;
     background-color: saddlebrown;
     color: #fbf5f5;
     border-radius: 5px;

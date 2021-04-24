@@ -1,0 +1,174 @@
+﻿@{
+    Layout = null;
+    List<MyBook> bookList = ViewBag.BookList;
+    User user = ViewBag.User;
+    int id = ViewBag.Id;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Değiş tokuş</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="~/adsiter/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="~/adsiter/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="~/adsiter/css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="~/adsiter/images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="~/adsiter/css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="~/adsiter/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/adsiter/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
+</head>
+<body>
+    <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 col-lg-2">
+                    <div class="logo"><a href="index.html"><img width="100px" src="~/adsiter/images/logo.png"></a></div>
+                </div>
+                <div class="col-sm-4 col-lg-7 ">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-item nav-link" href="/Home/Index/@id">Anasayfa</a>
+                                <a class="nav-item nav-link" href="/Home/Profile/@id">Profilim</a>
+                                <a class="nav-item nav-link" href="/Home/MyFav/@id">Favorilerim</a>
+                                <a class="nav-item nav-link" href="/Home/Information/@id">Hakkımızda</a>
+                                <a class="nav-item nav-link" href="/Message/WriteMessage/@id"><img width="30px" src="~/adsiter/images/letter.png" /> </a>
+
+                                <a class="nav-item nav-link" href="/Login/LogOut/"><img width="25px" src="~/adsiter/images/close.png" /></a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+                <div class="col-sm-5 col-lg-3">
+                    <div class="search_main">
+                        <button class="submit_bt"><a href="/Home/GiveYourOpinion/@id">Görüşlerini bildir</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- header section end -->
+    <!-- section PROMOTED start -->
+    <div class=" layout_padding promoted_sectipon">
+        <div class="container">
+            <h2 class="promoted_text">@user.Name @user.Surname</h2>
+            <button class="mobile_bt"><a href="/Message/WriteMessage">Mesaj At</a></button><br />
+
+
+            <h1 class="promoted_text"><span style="border-bottom: 5px solid saddlebrown;">YAYINDA OLAN KİTAPLAR</span></h1>
+            <div class="images_main">
+
+                <div class="row">
+                    @foreach (var item in bookList)
+                    {
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            <div class="images"><img width="500px" height="325px" src=@Url.Content(item.BookImage) style="width: 100%;"></div>
+
+                            <button class="eye-icon">Favorilere ekle<span class="like-icon"><img width="25px" src="~/adsiter/images/like-icon.png"></span></button>
+                            <div class="numbar_text"><span class="like-icon">@item.BookName</span></div>
+                            <div class="numbar_text"><span class="like-icon">@item.BookAuthor</span></div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- section PROMOTED end -->
+    @Html.Partial("../Shared/_Opinion")
+    <!-- footer section start -->
+    <div class="layout_padding footer_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div><img src="~/adsiter/images/footer-logo.png"></div>
+                    <p class="dolor_text">dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et sdolor sit amet,</p>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <h1 class="quick_text">Quick links</h1>
+                    <div class="chevron_arrow"><img src="images/chevron-arrow.png"><span class="padding-left">Join Us</span></div>
+                    <div class="chevron_arrow"><img src="images/chevron-arrow.png"><span class="padding-left">Maintenance</span></div>
+                    <div class="chevron_arrow"><img src="images/chevron-arrow.png"><span class="padding-left">Language Packs</span></div>
+                    <div class="chevron_arrow"><img src="images/chevron-arrow.png"><span class="padding-left">LearnPress</span></div>
+                    <div class="chevron_arrow"><img src="images/chevron-arrow.png"><span class="padding-left">Release Status</span></div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <h1 class="subscribe_text">Subcribe email</h1>
+                    <p class="ipsum_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                    <input type="text" class="email_text" placeholder="Your Email" name="Name">
+                    <button class="submit_text">Submit</button>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <h1 class="quick_text">Contact Us</h1>
+                    <div class="map_flag"><img src="images/map-flag.png"><span class="padding-left">London 145 United Kingdom</span></div>
+                    <div class="dolor_text"><img src="images/email-icon.png"><span class="padding-left">adsiter@gmail.com</span></div>
+                    <div class="dolor_text"><img src="images/phone-icon.png"><span class="padding-left">+12586954775</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer section end -->
+    <!-- copyright section start -->
+    <div class="copyright">
+        <p class="copyright_text">2019 All Rights Reserved. Design By <a href="https://html.design"> Free Html Templates</p>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="~/adsiter/js/jquery.min.js"></script>
+    <script src="~/adsiter/js/popper.min.js"></script>
+    <script src="~/adsiter/js/bootstrap.bundle.min.js"></script>
+    <script src="~/adsiter/js/jquery-3.0.0.min.js"></script>
+    <script src="~/adsiter/js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="~/adsiter/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/adsiter/js/custom.js"></script>
+    <!-- javascript -->
+    <script src="~/adsiter/js/owl.carousel.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+
+            $(".zoom").hover(function () {
+
+                $(this).addClass('transition');
+            }, function () {
+
+                $(this).removeClass('transition');
+            });
+        });
+
+    </script>
+
+</body>
+</html>

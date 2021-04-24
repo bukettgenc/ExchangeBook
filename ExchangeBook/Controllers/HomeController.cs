@@ -1,4 +1,5 @@
 ﻿using ExchangeBook.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,15 +16,30 @@ namespace ExchangeBook.Controllers
         {
             List<MyBook> bookList=db.MyBooks.Where(x => x.UserId != id && x.IsDeleted==false).ToList();
             ViewBag.bookList = bookList;
+            ViewBag.Id = id;
             return View();
         }
+        [Authorize]
         public IActionResult Profile(int id)
         {
             List<MyBook> bookList = db.MyBooks.Where(x => x.UserId == id && x.IsDeleted == false).ToList();
             ViewBag.bookList = bookList;
+            ViewBag.Id = id;
+
             return View();
         }
-    
+        [Authorize]
+        public IActionResult UserProfile(int id,int userId)
+        {
+            List<MyBook> bookList = db.MyBooks.Where(x => x.UserId == userId && x.IsDeleted == false).ToList();
+            ViewBag.bookList = bookList;
+            User user = db.Users.Where(x => x.UserId == userId).SingleOrDefault();
+            ViewBag.User = user;
+            ViewBag.Id = id;
+
+            return View();
+        }
+        [Authorize]
         public IActionResult MyFav(int id)
         {
             List<MyFav> list = db.MyFavs.Where(x => x.UserId==id).ToList();
@@ -34,27 +50,25 @@ namespace ExchangeBook.Controllers
                 favList.Add(book);
             }
             ViewBag.FavList = favList;
+            ViewBag.Id = id;
 
             return View();
         }
-        public IActionResult GiveYourOpinion()
+        [Authorize]
+        public IActionResult GiveYourOpinion(int id)
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewBag.Id = id;
 
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Information(int id)
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewBag.Id = id;
 
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

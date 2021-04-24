@@ -39,6 +39,8 @@ namespace ExchangeBook.Migrations
 
                     b.Property<string>("BookAuthor");
 
+                    b.Property<string>("BookExplanation");
+
                     b.Property<string>("BookImage");
 
                     b.Property<string>("BookName");
@@ -123,7 +125,11 @@ namespace ExchangeBook.Migrations
 
                     b.Property<bool>("IsDeleted");
 
+                    b.Property<string>("Name");
+
                     b.Property<string>("Password");
+
+                    b.Property<string>("Surname");
 
                     b.Property<string>("UserName");
 

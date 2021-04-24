@@ -13,6 +13,8 @@ namespace ExchangeBook.Models
         public int BookId { get; set; }
         public string BookName { get; set; }
         public string BookAuthor { get; set; }
+        public string BookExplanation { get; set; }
+
         public string BookImage { get; set; }
         public bool IsDeleted { get; set; }
 

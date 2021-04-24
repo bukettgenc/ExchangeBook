@@ -1,6 +1,7 @@
 ﻿@{
     Layout = null;
     List<MyBook> bookList = ViewBag.BookList;
+    int id = ViewBag.Id;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -37,32 +38,34 @@
 </head>
 <body>
     <!-- header section start -->
-    <div class="header_section"> 
+    <div class="header_section">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-lg-3">
+                <div class="col-sm-3 col-lg-2">
                     <div class="logo"><a href="index.html"><img width="100px" src="~/adsiter/images/logo.png"></a></div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4 col-lg-7 ">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
-                                <a class="nav-item nav-link" href="/Home/Index">Anasayfa</a>
-                                <a class="nav-item nav-link" href="/Home/Profile">Profilim</a>
-                                <a class="nav-item nav-link" href="/Home/MyFav">Favorilerim</a>
-                                <a class="nav-item nav-link" href="/Message/WriteMessage">Mesajlarım</a>
-                                <a class="nav-item nav-link" href="clients.html">Çıkış</a>
-                                <a class="nav-item nav-link" href="clients.html">Çıkış</a>
+                                <a class="nav-item nav-link" href="/Home/Index/@id">Anasayfa</a>
+                                <a class="nav-item nav-link" href="/Home/Profile/@id">Profilim</a>
+                                <a class="nav-item nav-link" href="/Home/MyFav/@id">Favorilerim</a>
+                                <a class="nav-item nav-link" href="/Home/Information/@id">Hakkımızda</a>
+                                <a class="nav-item nav-link" href="/Message/MyMessage/@id"><img width="30px" src="~/adsiter/images/letter.png" /> </a>
+
+                                <a class="nav-item nav-link" href="/Login/LogOut/"><img width="25px" src="~/adsiter/images/close.png" /></a>
                             </div>
                         </div>
                     </nav>
                 </div>
-                <div class="col-sm-6 col-lg-3">
+
+                <div class="col-sm-5 col-lg-3">
                     <div class="search_main">
-                        <button class="submit_bt"><a href="/Home/GiveYourOpinion">Görüşlerini bildir</a></button>
+                        <button class="submit_bt"><a href="/Home/GiveYourOpinion/@id">Görüşlerini bildir</a></button>
                     </div>
                 </div>
             </div>
@@ -77,7 +80,7 @@
                     <h1 class="banner_taital"><b>Tek bir kitap,birçok insan</b></h1>
                     <p class="browse_text"><b>Hadi sende istediğin kitabı ara ve değiş tokuş yap!</b></p>
                     <div class="banner_bt">
-                        <button class="read_bt">Bilgi Al</button>
+                        <button class="read_bt"><a href="/Home/Information/@id">Bilgi Al</a> </button>
                     </div>
                 </div>
             </div>
@@ -105,7 +108,7 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <button class="search_bt">Ara</button>
+                        <button class="search_bt"><a href="#">Ara</a></button>
                     </div>
                 </div>
                 @*<div class="fashion_menu">
@@ -135,7 +138,9 @@
                             <button class="eye-icon" onclick="location.href='@Url.Action("Profile", "Home")';return false;">Favorilere ekle<span class="like-icon"><img width="25px;" src="~/adsiter/images/like-icon.png"></span></button>
                             <div class="numbar_text"><span class="like-icon">@item.BookName</span></div>
                             <div class="numbar_text"><span class="like-icon">@item.BookAuthor</span></div>
-                            <button class="mobile_bt"><a href="/Message/WriteMessage">Sahibine Mesaj At</a></button>
+                            <button class="mobile_bt"><a href="/Message/WriteMessage/?id=@id&userId=@item.UserId">Mesaj At</a></button><br />
+                            <button class="mobile_bt"><a href="/Home/UserProfile/?id=@id&userId=@item.UserId">Diğer kitapları gör</a></button>
+
                         </div>
                     }
 
@@ -144,57 +149,6 @@
         </div>
     </div>
     <!-- section PROMOTED end -->
-    <!-- section POPULAR STORES start -->
-    <div class="layout_padding popular_section">
-        <div class="container">
-            <h1 class="popular_taital"><span style="border-bottom: 5px solid saddlebrown;">EN GÜVENİLİR SEÇİLENLER</span></h1>
-            <div id="main_slider" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="popular_section_2">
-                            <div class="slider_img"><img src="~/adsiter/images/img-5.png" style="max-width: 100%;"></div>
-                            <h2 class="electronic_text">Buket GENÇ</h2>
-                            <p class="contrary_text">
-                                Contrary to popular belief, Lorem
-                                Ipsum is not simply random text. It has roots in a piece of classical Latin literature from
-                            </p>
-                            <button class="view_bt"><a href="#">İLANLARINA BAK</a></button>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="popular_section_2">
-                            <div class="slider_img"><img src="~/adsiter/images/img-5.png" style="max-width: 100%;"></div>
-                            <h2 class="electronic_text">Electronic shop</h2>
-                            <p class="contrary_text">
-                                Contrary to popular belief, Lorem
-                                Ipsum is not simply random text. It has roots in a piece of classical Latin literature from
-                            </p>
-                            <button class="view_bt"><a href="#">VIEW ADS</a></button>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="popular_section_2">
-                            <div class="slider_img"><img src="~/adsiter/images/img-5.png" style="max-width: 100%;"></div>
-                            <h2 class="electronic_text">Electronic shop</h2>
-                            <p class="contrary_text">
-                                Contrary to popular belief, Lorem
-                                Ipsum is not simply random text. It has roots in a piece of classical Latin literature from
-                            </p>
-                            <button class="view_bt"><a href="#">VIEW ADS</a></button>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                <a class="carousel-control-next" href="#main_slider" role="button" data-slide="prev">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-
-            </div>
-        </div>
-    </div>
-    <!-- section POPULAR STORES end -->
     <!-- about section start -->
     <div class="layout_padding about_section">
         <div class="container">
