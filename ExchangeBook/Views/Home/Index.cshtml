@@ -2,6 +2,9 @@
     Layout = null;
     List<MyBook> bookList = ViewBag.BookList;
     int id = ViewBag.Id;
+    int flag = 0;
+    Context db = new Context();
+    var favList = db.MyFavs.ToList();
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +37,9 @@
     <link rel="stylesheet" href="~/adsiter/css/owl.carousel.min.css">
     <link rel="stylesheet" href="~/adsiter/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-
+    <script src="~/js/modernizer.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.slim.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <!-- header section start -->
@@ -130,20 +135,54 @@
             <h1 class="promoted_text"><span style="border-bottom: 5px solid saddlebrown;">İLANDAKİ KİTAPLAR</span></h1>
             <div class="images_main">
                 <div class="row">
+
                     @foreach (var item in bookList)
                     {
-                        <div class="col-sm-6 col-md-6 col-lg-3">
-                            <div class="images"><img width="500px" height="325px" src=@Url.Content(item.BookImage) style="width: 100%;"></div>
+                        {
+                            string button_name = "";
+                            if (favList.Exists(x => x.BookId == item.BookId && x.UserId == id))
+                            {
+                                button_name = "Favorilerden Kaldır";
+                            }
+                            else { 
+                                button_name = "Favorilere Ekle";
+                            }
 
-                            <button class="eye-icon" onclick="location.href='@Url.Action("Profile", "Home")';return false;">Favorilere ekle<span class="like-icon"><img width="25px;" src="~/adsiter/images/like-icon.png"></span></button>
-                            <div class="numbar_text"><span class="like-icon">@item.BookName</span></div>
-                            <div class="numbar_text"><span class="like-icon">@item.BookAuthor</span></div>
-                            <button class="mobile_bt"><a href="/Message/WriteMessage/?id=@id&userId=@item.UserId">Mesaj At</a></button><br />
-                            <button class="mobile_bt"><a href="/Home/UserProfile/?id=@id&userId=@item.UserId">Diğer kitapları gör</a></button>
+                            string idButton = "button" + flag;
+                            flag++;
 
-                        </div>
+
+                            <div class="col-sm-6 col-md-6 col-lg-3">
+                                <div class="images"><img width="500px" height="325px" src=Url.Content(item.BookImage) style="width: 100%;"></div>
+
+
+                                <button id=@idButton class="eye-icon" value=@button_name>@button_name<span class="like-icon"><img width="25px;" src="~/adsiter/images/like-icon.png"></span></button>
+
+                                <div class="numbar_text"><span class="like-icon">@item.BookName</span></div>
+                                <div class="numbar_text"><span class="like-icon">@item.BookAuthor</span></div>
+                                <button class="mobile_bt"><a href="/Message/WriteMessage/?id=@id&userId=@item.UserId">Mesaj At</a></button><br />
+                                <button class="mobile_bt"><a href="/Home/UserProfile/?id=@id&userId=@item.UserId">Diğer kitapları gör</a></button>
+
+                            </div>
+
+                            <script type="text/javascript">
+                        $(function() {
+                            $(@idButton).click(function() {
+                                $.ajax({
+                                    url: '/Home/AddFav/?id=@id&bookId=@item.BookId',
+                                    type: 'POST',
+                                    datatype: 'json',
+                                    success: function(data) {
+
+                                        $(@idButton).html(data.buttonName);
+
+                                    }
+                                });
+                            })
+                        })
+                            </script>
+                        }
                     }
-
                 </div>
             </div>
         </div>

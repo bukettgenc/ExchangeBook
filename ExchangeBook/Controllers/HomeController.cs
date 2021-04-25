@@ -17,6 +17,7 @@ namespace ExchangeBook.Controllers
             List<MyBook> bookList = db.MyBooks.Where(x => x.UserId != id && x.IsDeleted == false).ToList();
             ViewBag.bookList = bookList;
             ViewBag.Id = id;
+
             return View();
         }
         [Authorize]
@@ -62,7 +63,7 @@ namespace ExchangeBook.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult GiveYourOpinion(int id,Opinion opinion)
+        public IActionResult GiveYourOpinion(int id, Opinion opinion)
         {
             opinion.UserId = id;
             opinion.Published = false;
@@ -78,12 +79,34 @@ namespace ExchangeBook.Controllers
 
             return View();
         }
-
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public JsonResult AddFav(int id, int bookId)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var favList = db.MyFavs.ToList();
+            string buttonName = "";
+            if (favList.Exists(x => x.BookId == bookId && x.UserId == id))
+            {
+                var item = db.MyFavs.Where(x => x.BookId == bookId && x.UserId == id).SingleOrDefault();
+                db.MyFavs.Remove(item);
+                buttonName = "Favorilere Ekle";
+            }
+            else
+            {
+                MyFav fav = new MyFav();
+                fav.BookId = bookId;
+                fav.UserId = id;
+                db.MyFavs.Add(fav);
+                buttonName = "Favorilerden Kaldır";
+
+
+            }
+            db.SaveChanges();
+
+            MoveAjax m = new MoveAjax();
+            m.buttonName = buttonName;
+            return Json(m);
         }
+
+
     }
 }
