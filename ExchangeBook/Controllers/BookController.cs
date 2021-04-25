@@ -26,6 +26,7 @@ namespace ExchangeBook.Controllers
         }
         public IActionResult AddBook(int id)
         {
+           
             List<SelectListItem> values = (from x in db.BookTypes.ToList()
                                            select new SelectListItem
                                            {
@@ -39,6 +40,10 @@ namespace ExchangeBook.Controllers
         [HttpPost]
         public IActionResult AddBook(int id, MyBook book)
         {
+            if (!ModelState.IsValid)
+            {
+                return Redirect("~/Book/AddBook/" + id);
+            }
             book.BookImage = "img";
             book.UserId = id;
             ViewBag.Id = id;

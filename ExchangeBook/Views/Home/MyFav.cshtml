@@ -1,7 +1,9 @@
 ﻿@{
     Layout = null;
     List<MyBook> favList = ViewBag.FavList;
+    List<MyFav> favList2 = ViewBag.FavList2;
     int id = ViewBag.Id;
+    int flag = 0;
 
 }
 <!DOCTYPE html>
@@ -35,7 +37,9 @@
     <link rel="stylesheet" href="~/adsiter/css/owl.carousel.min.css">
     <link rel="stylesheet" href="~/adsiter/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-
+    <script src="~/js/modernizer.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.slim.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <!-- header section start -->
@@ -81,23 +85,51 @@
                 <div class="row">
                     @foreach (var item in favList)
                     {
-                        <div class="col-sm-6 col-md-6 col-lg-3">
-                            <div class="images"><img width="500px" height="325px" src=@Url.Content(item.BookImage) style="width: 100%;"></div>
+                        {
+                            string button_name = "";
+                            if (favList2.Exists(x => x.BookId == item.BookId && x.UserId == id))
+                            {
+                                button_name = "Favorilerden Kaldır";
+                            }
+                            else
+                            {
+                                button_name = "Favorilere Ekle";
+                            }
 
-                            <button class="eye-icon">Favorilere ekle<span class="like-icon"><img width="25px" src="~/adsiter/images/like-icon.png"></span></button>
-                            <div class="numbar_text"><span class="like-icon">@item.BookName</span></div>
-                            <div class="numbar_text"><span class="like-icon">@item.BookAuthor</span></div>
-                        </div>
+                            string idButton = "button" + flag;
+                            flag++;
+
+                            <div class="col-sm-6 col-md-6 col-lg-3">
+                                <div class="images"><img width="500px" height="325px" src=@Url.Content(item.BookImage) style="width: 100%;"></div>
+
+                                <button id=@idButton value=@button_name class="eye-icon">@button_name<span class="like-icon"><img width="25px" src="~/adsiter/images/like-icon.png"></span></button>
+                                <div class="numbar_text"><span class="like-icon">@item.BookName</span></div>
+                                <div class="numbar_text"><span class="like-icon">@item.BookAuthor</span></div>
+                            </div>
+                            <script type="text/javascript">
+                        $(function() {
+                            $(@idButton).click(function() {
+                                $.ajax({
+                                    url: '/Home/AddFav/?id=@id&bookId=@item.BookId',
+                                    type: 'POST',
+                                    datatype: 'json',
+                                    success: function(data) {
+
+                                        $(@idButton).html(data.buttonName);
+
+                                    }
+                                });
+                            })
+                        })
+                            </script>
+                        }
+
                     }
 
                 </div>
             </div>
         </div>
     </div>
-    <!-- section PROMOTED end -->
-    @Html.Partial("../Shared/_Opinion")
-
-    <!-- contact section start -->
     <div class="contact_section layout_padding">
         <div class="container-fluid">
             <div class="row">
@@ -167,7 +199,7 @@
     <!-- footer section end -->
     <!-- copyright section start -->
     <div class="copyright">
-        <p class="copyright_text">2019 All Rights Reserved. Design By <a href="https://html.design"> Free Html Templates</p>
+        <p class="copyright_text">2021 Tüm Hakları Saklıdır.</p>
     </div>
     <!-- copyright section end -->
     <!-- Javascript files-->

@@ -40,6 +40,10 @@ namespace ExchangeBook.Controllers
         }
         public IActionResult Register()
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Register");
+            }
             List<SelectListItem> values = (from x in db.Cities.ToList()
                                            select new SelectListItem
                                            {
@@ -60,7 +64,7 @@ namespace ExchangeBook.Controllers
                 db.SaveChanges();
             }
             return Redirect("~/Login/Login/");
-            
+
         }
     }
 }

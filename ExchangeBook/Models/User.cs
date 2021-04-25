@@ -10,11 +10,17 @@ namespace ExchangeBook.Models
     {
         [Key]
         public int UserId { get; set; }
+    
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Surname { get; set; }
+        [Required]
         public string UserName { get; set; }
         public string Email { get; set; }
+        [Required]
         public string Password { get; set; }
+        
         public string Password2 { get; set; }
         public bool IsDeleted { get; set; }
         public int CityId { get; set; }

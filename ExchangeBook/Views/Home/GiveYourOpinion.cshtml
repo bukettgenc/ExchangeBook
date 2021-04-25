@@ -86,10 +86,11 @@
                                 </div>
                                 @using (Html.BeginForm("GiveYourOpinion", "Home", FormMethod.Post, new { @id = id }))
                                 {
-                                    <div class="form-group">
+                        <div class="form-group">
 
-                                        @Html.TextAreaFor(m => m.YourOpinion, new { @class = "massage-bt", placeholder = "Bu site hakkındaki görüşlerinizi bildirirseniz seviniriz :)" })
-                                    </div>
+                            @Html.TextAreaFor(m => m.YourOpinion, new { @class = "massage-bt", placeholder = "Bu site hakkındaki görüşlerinizi bildirirseniz seviniriz :)" })
+                            @Html.ValidationMessageFor(m => m.YourOpinion, "", new { @style = "color:red" })
+                        </div>
 
                                     <button class="submit_textMessageInput">Gönder</button>
                       }

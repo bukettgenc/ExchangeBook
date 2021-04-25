@@ -11,15 +11,16 @@ namespace ExchangeBook.Models
     {
         [Key]
         public int BookId { get; set; }
+
+        [Required(ErrorMessage = "Bu alan zorunlu")]
         public string BookName { get; set; }
+        [Required(ErrorMessage = "Bu alan zorunlu")]
         public string BookAuthor { get; set; }
         public string BookExplanation { get; set; }
 
         public string BookImage { get; set; }
         public bool IsDeleted { get; set; }
 
-        public int TypeId { get; set; }
-        public virtual BookType BookType { get; set; }
 
         public int UserId { get; set; }
         public virtual User User { get; set; }

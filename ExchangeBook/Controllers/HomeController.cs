@@ -12,14 +12,20 @@ namespace ExchangeBook.Controllers
     public class HomeController : Controller
     {
         Context db = new Context();
-        public IActionResult Index(int id)
+        public IActionResult Index(int id, string book,string author)
         {
+            var degerler = from d in db.MyBooks select d;
+            if (!string.IsNullOrEmpty(book) || !string.IsNullOrEmpty(author) )
+            {
+                degerler = degerler.Where(m => m.BookName.Contains(book) || m.BookAuthor.Contains(author));
+            }
             List<MyBook> bookList = db.MyBooks.Where(x => x.UserId != id && x.IsDeleted == false).ToList();
             ViewBag.bookList = bookList;
             ViewBag.Id = id;
 
-            return View();
+            return View(degerler.ToList());
         }
+
         [Authorize]
         public IActionResult Profile(int id)
         {
@@ -50,7 +56,10 @@ namespace ExchangeBook.Controllers
                 MyBook book = db.MyBooks.Where(t => t.BookId == item.BookId).SingleOrDefault();
                 favList.Add(book);
             }
+            List<MyFav> list2 = db.MyFavs.ToList();
+
             ViewBag.FavList = favList;
+            ViewBag.FavList2 = list2;
             ViewBag.Id = id;
 
             return View();
@@ -65,6 +74,10 @@ namespace ExchangeBook.Controllers
         [HttpPost]
         public IActionResult GiveYourOpinion(int id, Opinion opinion)
         {
+            if (!ModelState.IsValid)
+            {
+                return Redirect("~/Home/GiveYourOpinion/" + id);
+            }
             opinion.UserId = id;
             opinion.Published = false;
             db.Opinions.Add(opinion);

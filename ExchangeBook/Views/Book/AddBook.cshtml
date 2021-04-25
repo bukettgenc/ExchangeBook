@@ -2,7 +2,7 @@
     Layout = null;
     List<MyBook> bookList = ViewBag.BookList;
     int id = ViewBag.Id;
-    var values= ViewBag.values;
+    var values = ViewBag.values;
     @model ExchangeBook.Models.MyBook;
 }
 <!DOCTYPE html>
@@ -79,15 +79,17 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-9">
-                    <div class="input_main">
-                        <div class="container">
+                    <div class="input_main ">
+                        <div class="container validate-form">
                             @using (Html.BeginForm("AddBook", "Book", FormMethod.Post, new { enctype = "multipart/form-data", @id = id }))
                             {
-                                <div class="form-group">
+                                <div class="form-group validate-input" data-validate="Parola Girin">
                                     @Html.TextBoxFor(m => m.BookName, new { placeholder = "Kitap Adı", @class = "email-bt" })
+                                    @Html.ValidationMessageFor(m => m.BookName, "", new { @style = "color:red" })
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group validate-input" data-validate="Parola Girin">
                                     @Html.TextBoxFor(m => m.BookAuthor, new { placeholder = "Yazar", @class = "email-bt" })
+                                    @Html.ValidationMessageFor(m => m.BookAuthor, "", new { @style = "color:red" })
 
                                 </div>
 
@@ -95,11 +97,7 @@
                                     @Html.TextAreaFor(m => m.BookExplanation, new { @class = "massage-bt", placeholder = "Açıklama" })
 
                                 </div>
-                                <div class="form-group">
-                                    @Html.DropDownListFor(m => m.TypeId, (IEnumerable<SelectListItem>)values, new { @class = "massage-bt" })
-
-                                </div>
-
+                           
                                 <br />
                                 <div class="form-group">
 

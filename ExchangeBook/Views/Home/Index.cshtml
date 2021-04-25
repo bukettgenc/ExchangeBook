@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<MyBook>
+@{
     Layout = null;
     List<MyBook> bookList = ViewBag.BookList;
     int id = ViewBag.Id;
@@ -95,37 +96,36 @@
     <!-- search box start -->
     <div class="container">
         <div class="search_box">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="email_boton" placeholder="Kitap adına göre ara" name="Email">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+            {
+                <div class="row">
+
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            @Html.TextBox("book", "", new { @class = "email_boton", @placeholder = "Kitap adına göre" })
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="email_boton" placeholder="Yazara göre ara" name="Email">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            @Html.TextBox("author", "", new { @class = "email_boton", @placeholder = "Yazara göre ara" })
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="email_boton" placeholder="Kategoriye göre ara" name="Email">
+
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="submit" class="search_bt" value="Ara " />
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <button class="search_bt"><a href="#">Ara</a></button>
-                    </div>
-                </div>
-                @*<div class="fashion_menu">
-                        <ul>
-                            <li class="active"><a href="#">Roman</a></li>
-                            <li><a href="#">Çocuk kitapları</a></li>
-                            <li><a href="#">Şiir</a></li>
-                            <li><a href="#">Hikaye</a></li>
-                            <li><a href="#">Deneme</a></li>
-                        </ul>
-                    </div>*@
-            </div>
+                    @*<div class="fashion_menu">
+                            <ul>
+                                <li class="active"><a href="#">Roman</a></li>
+                                <li><a href="#">Çocuk kitapları</a></li>
+                                <li><a href="#">Şiir</a></li>
+                                <li><a href="#">Hikaye</a></li>
+                                <li><a href="#">Deneme</a></li>
+                            </ul>
+                        </div>*@
+                </div>}
         </div>
     </div>
     <!-- search box end -->
@@ -136,7 +136,7 @@
             <div class="images_main">
                 <div class="row">
 
-                    @foreach (var item in bookList)
+                    @foreach (var item in Model)
                     {
                         {
                             string button_name = "";
@@ -144,7 +144,8 @@
                             {
                                 button_name = "Favorilerden Kaldır";
                             }
-                            else { 
+                            else
+                            {
                                 button_name = "Favorilere Ekle";
                             }
 
@@ -199,45 +200,7 @@
             </div>
         </div>
     </div>
-    <!-- about section end -->
-    @Html.Partial("../Shared/_Opinion")
 
-    <!-- contact section start -->
-    <div class="contact_section layout_padding">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="input_main">
-                        <div class="container">
-                            <form action="/action_page.php">
-                                <div class="form-group">
-                                    <input type="text" class="email-bt" placeholder="Your Name" name="Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="email-bt" placeholder="Email" name="Email">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="email-bt" placeholder="Phone" name="Email">
-                                </div>
-                                <form action="/action_page.php">
-                                    <div class="form-group">
-                                        <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="text"></textarea>
-                                    </div>
-                                </form>
-                                <button class="submit_text">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="map-responsive">
-                        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" width="600" height="450" frameborder="0" style="border:0; width: 100%;" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- contact section end -->
     <!-- footer section start -->
     <div class="layout_padding footer_section">
         <div class="container">
@@ -272,7 +235,7 @@
     <!-- footer section end -->
     <!-- copyright section start -->
     <div class="copyright">
-        <p class="copyright_text">2019 All Rights Reserved. Design By <a href="https://html.design"> Free Html Templates</p>
+        <p class="copyright_text">2021 Tüm Hakları Saklıdır.</p>
     </div>
     <!-- copyright section end -->
     <!-- Javascript files-->
@@ -307,3 +270,28 @@
 
 </body>
 </html>
+
+<section class="colorfulForm">
+    <label>Title</label>
+    <input type="text" id="title" value="Colorful popup" class="l2" /><br>
+    <label>Text</label>
+    <textarea id="myText" class="l2">My text example</textarea><br>
+    <label>Mode</label>
+    <select class="l2" id="mode">
+        <option value="">confirm</option>
+        <option value="alert">alert</option>
+    </select><br>
+    <label>Size</label>
+    <select class="l2" id="size">
+        <option value="p">small</option>
+        <option value="m">medium</option>
+        <option value="g">big</option>
+    </select><br>
+    <label>Color</label>
+    <button class="l1 blue">blue</button>
+    <button class="l1 green">green</button>
+    <button class="l1 red">red</button>
+    <button class="l1 white" style="border: 1px solid #555; color: #555;">white</button>
+    <button class="l1 orange">orange</button>
+    <button class="l1 purple">purple</button>
+</section> 

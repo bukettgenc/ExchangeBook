@@ -10,6 +10,7 @@ namespace ExchangeBook.Models
     {
         [Key]
         public int OpinionId { get; set; }
+        [Required(ErrorMessage ="Bu alan zorunlu")]
         public string YourOpinion { get; set; }
         public bool Published { get; set; }
         public int UserId { get; set; }
