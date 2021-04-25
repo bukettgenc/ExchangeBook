@@ -36,3 +36,9 @@ C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Home\MyFav.cshtml.g.cs
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Home\GiveYourOpinion.cshtml.g.cs
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Opinion.cshtml.g.cs
+C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Book\AddBook.cshtml.g.cs
+C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Home\Information.cshtml.g.cs
+C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Home\UserProfile.cshtml.g.cs
+C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Login\Login.cshtml.g.cs
+C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Login\Register.cshtml.g.cs
+C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2.1\Razor\Views\Message\MyMessage.cshtml.g.cs

@@ -14,7 +14,7 @@ namespace ExchangeBook.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
+                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -29,6 +29,19 @@ namespace ExchangeBook.Migrations
                     b.HasKey("TypeId");
 
                     b.ToTable("BookTypes");
+                });
+
+            modelBuilder.Entity("ExchangeBook.Models.City", b =>
+                {
+                    b.Property<int>("CityId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CityName");
+
+                    b.HasKey("CityId");
+
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("ExchangeBook.Models.MyBook", b =>
@@ -83,6 +96,8 @@ namespace ExchangeBook.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Published");
+
                     b.Property<int>("UserId");
 
                     b.Property<string>("YourOpinion");
@@ -119,9 +134,9 @@ namespace ExchangeBook.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Email");
+                    b.Property<int>("CityId");
 
-                    b.Property<string>("Image");
+                    b.Property<string>("Email");
 
                     b.Property<bool>("IsDeleted");
 
@@ -129,11 +144,15 @@ namespace ExchangeBook.Migrations
 
                     b.Property<string>("Password");
 
+                    b.Property<string>("Password2");
+
                     b.Property<string>("Surname");
 
                     b.Property<string>("UserName");
 
                     b.HasKey("UserId");
+
+                    b.HasIndex("CityId");
 
                     b.ToTable("Users");
                 });
@@ -172,6 +191,14 @@ namespace ExchangeBook.Migrations
                     b.HasOne("ExchangeBook.Models.User", "User")
                         .WithMany("Reviews")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ExchangeBook.Models.User", b =>
+                {
+                    b.HasOne("ExchangeBook.Models.City", "City")
+                        .WithMany("Users")
+                        .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace ExchangeBook.Controllers
                 var userIdentity = new ClaimsIdentity(claims, "Login");
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                 await HttpContext.SignInAsync(principal);
-                return Redirect("~/Home/Index/"+bilgiler.UserId);
+                return Redirect("~/Home/Index/" + bilgiler.UserId);
             }
             return View();
         }
@@ -39,7 +40,27 @@ namespace ExchangeBook.Controllers
         }
         public IActionResult Register()
         {
+            List<SelectListItem> values = (from x in db.Cities.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.CityName,
+                                               Value = x.CityId.ToString()
+                                           }).ToList();
+            ViewBag.values = values;
             return View();
+
+        }
+        [HttpPost]
+        public IActionResult Register(User user)
+        {
+            var item = db.Users.Where(x => x.UserName == user.UserName || x.Email == user.Email).SingleOrDefault();
+            if (user.Password == user.Password2 && item == null)
+            {
+                db.Users.Add(user);
+                db.SaveChanges();
+            }
+            return Redirect("~/Login/Login/");
+            
         }
     }
 }

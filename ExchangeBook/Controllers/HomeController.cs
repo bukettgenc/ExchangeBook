@@ -11,10 +11,10 @@ namespace ExchangeBook.Controllers
 {
     public class HomeController : Controller
     {
-        Context db=new Context();
+        Context db = new Context();
         public IActionResult Index(int id)
         {
-            List<MyBook> bookList=db.MyBooks.Where(x => x.UserId != id && x.IsDeleted==false).ToList();
+            List<MyBook> bookList = db.MyBooks.Where(x => x.UserId != id && x.IsDeleted == false).ToList();
             ViewBag.bookList = bookList;
             ViewBag.Id = id;
             return View();
@@ -29,7 +29,7 @@ namespace ExchangeBook.Controllers
             return View();
         }
         [Authorize]
-        public IActionResult UserProfile(int id,int userId)
+        public IActionResult UserProfile(int id, int userId)
         {
             List<MyBook> bookList = db.MyBooks.Where(x => x.UserId == userId && x.IsDeleted == false).ToList();
             ViewBag.bookList = bookList;
@@ -42,8 +42,8 @@ namespace ExchangeBook.Controllers
         [Authorize]
         public IActionResult MyFav(int id)
         {
-            List<MyFav> list = db.MyFavs.Where(x => x.UserId==id).ToList();
-            List<MyBook> favList=new List<MyBook>();
+            List<MyFav> list = db.MyFavs.Where(x => x.UserId == id).ToList();
+            List<MyBook> favList = new List<MyBook>();
             foreach (var item in list)
             {
                 MyBook book = db.MyBooks.Where(t => t.BookId == item.BookId).SingleOrDefault();
@@ -61,7 +61,17 @@ namespace ExchangeBook.Controllers
 
             return View();
         }
+        [HttpPost]
+        public IActionResult GiveYourOpinion(int id,Opinion opinion)
+        {
+            opinion.UserId = id;
+            opinion.Published = false;
+            db.Opinions.Add(opinion);
+            db.SaveChanges();
+            ViewBag.Id = id;
 
+            return View();
+        }
         public IActionResult Information(int id)
         {
             ViewBag.Id = id;

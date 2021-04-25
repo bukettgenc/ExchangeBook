@@ -8,12 +8,15 @@ using System.Web;
 using System.Threading.Tasks;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using java.nio.file;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ExchangeBook.Controllers
 {
     [Authorize] 
     public class BookController : Controller
     {
+        Context db = new Context();
         private static Random random = new Random();
         public static string RandomString(int length)
         {
@@ -23,19 +26,31 @@ namespace ExchangeBook.Controllers
         }
         public IActionResult AddBook(int id)
         {
+            List<SelectListItem> values = (from x in db.BookTypes.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.TypeName,
+                                               Value = x.TypeId.ToString()
+                                           }).ToList();
+            ViewBag.values = values;
             ViewBag.Id = id;
             return View();
         }
         [HttpPost]
         public IActionResult AddBook(int id, MyBook book)
         {
+            book.BookImage = "img";
+            book.UserId = id;
+            ViewBag.Id = id;
+
+            db.MyBooks.Add(book);
+            db.SaveChanges();
             //if (file != null && file.ContentLength > 0)
             //    try
             //    {
             //        String random = RandomString(10);
-            //        string path = Path.Combine(
-            //                       Directory.GetCurrentDirectory(), "wwwroot", file.GetFilename(),
-            //                         Path.GetFileName(random + ".jpg"));
+            //       string path = Path.Combine(Server.MapPath("~/Upload/"),
+            //        Path.GetFileName(random + ".mp4"));
             //        file.SaveAs(path);
             //        book.BookImage = "~/Upload/" + random + ".mp4";
             //        ViewBag.Message = "File uploaded successfully";
@@ -48,8 +63,7 @@ namespace ExchangeBook.Controllers
             //{
             //    ViewBag.Message = "You have not specified a file.";
             //}
-            ViewBag.Id = id;
-            return View();
+            return Redirect("~/Home/Profile/" + id);
         }
     }
 }

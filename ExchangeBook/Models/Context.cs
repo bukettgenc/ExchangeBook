@@ -18,5 +18,6 @@ namespace ExchangeBook.Models
         public DbSet<Review> Reviews { get; set; }
         public DbSet<BookType> BookTypes { get; set; }
         public DbSet<Opinion> Opinions { get; set; }
+        public DbSet<City> Cities { get; set; }
     }
 }

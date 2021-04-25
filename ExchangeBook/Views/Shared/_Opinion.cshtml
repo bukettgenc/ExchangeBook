@@ -1,6 +1,6 @@
 ﻿@{
     Context db = new Context();
-    List<Opinion> opinionList= db.Opinions.ToList();
+    List<Opinion> opinionList= db.Opinions.Where(x=>x.Published==true).ToList();
     int counter = 0;
 }
 <div class="layout_padding clients_section">

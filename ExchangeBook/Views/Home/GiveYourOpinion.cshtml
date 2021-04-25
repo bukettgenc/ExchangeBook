@@ -1,6 +1,7 @@
-﻿@{
+﻿@model ExchangeBook.Models.Opinion;
+@{
+
     Layout = null;
-    List<MyBook> bookList = ViewBag.BookList;
     int id = ViewBag.Id;
 
 }
@@ -80,17 +81,18 @@
                 <div class="col-md-9">
                     <div class="input_main">
                         <div class="container">
-                            <form action="/action_page.php">
                                 <div class="form-group">
                                     <h1 style="color:white;">GÖRÜŞ BİLDİR</h1>
                                 </div>
-                                <form action="/action_page.php">
+                                @using (Html.BeginForm("GiveYourOpinion", "Home", FormMethod.Post, new { @id = id }))
+                                {
                                     <div class="form-group">
-                                        <textarea class="massage-bt" placeholder="Bu site hakkındaki görüşlerinizi bildirirseniz seviniriz :)" rows="5" id="comment" name="text"></textarea>
+
+                                        @Html.TextAreaFor(m => m.YourOpinion, new { @class = "massage-bt", placeholder = "Bu site hakkındaki görüşlerinizi bildirirseniz seviniriz :)" })
                                     </div>
-                                </form>
-                                <button class="submit_textMessageInput">Gönder</button>
-                            </form>
+
+                                    <button class="submit_textMessageInput">Gönder</button>
+                      }
                         </div>
                     </div>
                 </div>

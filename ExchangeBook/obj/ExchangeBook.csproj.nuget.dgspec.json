@@ -26,7 +26,7 @@
         },
         "frameworks": {
           "netcoreapp2.0": {
-            "targetAlias": "netcoreapp2.0",
+            "targetAlias": "netcoreapp2",
             "projectReferences": {}
           }
         },
@@ -38,11 +38,15 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "targetAlias": "netcoreapp2.0",
+          "targetAlias": "netcoreapp2",
           "dependencies": {
             "Grpc.Core": {
               "target": "Package",
               "version": "[2.37.0, )"
+            },
+            "IKVM": {
+              "target": "Package",
+              "version": "[8.1.5717, )"
             },
             "Microsoft.AspNetCore": {
               "target": "Package",

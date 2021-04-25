@@ -2,6 +2,7 @@
     Layout = null;
     List<MyBook> bookList = ViewBag.BookList;
     int id = ViewBag.Id;
+    var values= ViewBag.values;
     @model ExchangeBook.Models.MyBook;
 }
 <!DOCTYPE html>
@@ -91,13 +92,19 @@
                                 </div>
 
                                 <div class="form-group">
-                                    @Html.TextAreaFor(m => m.BookExplanation, new { placeholder = "Açıklama", @class = "email-bt" })
+                                    @Html.TextAreaFor(m => m.BookExplanation, new { @class = "massage-bt", placeholder = "Açıklama" })
 
-                                </div>  
-                                @*<div class="form-group">
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(m => m.TypeId, (IEnumerable<SelectListItem>)values, new { @class = "massage-bt" })
+
+                                </div>
+
+                                <br />
+                                <div class="form-group">
 
                                     @Html.TextBox("file", "", new { type = "file" })
-                                </div>*@
+                                </div>
                                 <button type="submit" class="submit_textMessageInput">Kitap Ekle</button>}
 
                         </div>

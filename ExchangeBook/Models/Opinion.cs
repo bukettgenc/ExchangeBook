@@ -11,6 +11,7 @@ namespace ExchangeBook.Models
         [Key]
         public int OpinionId { get; set; }
         public string YourOpinion { get; set; }
+        public bool Published { get; set; }
         public int UserId { get; set; }
         public virtual User User { get; set; }
     }

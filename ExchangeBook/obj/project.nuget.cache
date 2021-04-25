@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "IBbSETNotny482+yfrikxb8jEE+QJXWyszm4cLSJkkdefv99vQXoUl23Jry3a5B9NnbEqWRD5GXpfC+PYhoh5Q==",
+  "dgSpecHash": "glMNYu+EqRKAkHe9/WbS0t/FDHB422Aqr8TsXDQJTP1C53j68WLyViJ5OBWZveBdyD8b7ITq7M7PmEpGumjecA==",
   "success": true,
   "projectFilePath": "C:\\Users\\GENC\\source\\repos\\eksiSozluk\\ExchangeBook\\ExchangeBook.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GENC\\.nuget\\packages\\grpc.core\\2.37.0\\grpc.core.2.37.0.nupkg.sha512",
     "C:\\Users\\GENC\\.nuget\\packages\\grpc.core.api\\2.37.0\\grpc.core.api.2.37.0.nupkg.sha512",
+    "C:\\Users\\GENC\\.nuget\\packages\\ikvm\\8.1.5717\\ikvm.8.1.5717.nupkg.sha512",
     "C:\\Users\\GENC\\.nuget\\packages\\microsoft.aspnetcore\\2.1.7\\microsoft.aspnetcore.2.1.7.nupkg.sha512",
     "C:\\Users\\GENC\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.1.1\\microsoft.aspnetcore.antiforgery.2.1.1.nupkg.sha512",
     "C:\\Users\\GENC\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
@@ -230,5 +231,16 @@
     "C:\\Users\\GENC\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
     "C:\\Users\\GENC\\.nuget\\packages\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'IKVM 8.1.5717' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "IKVM",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    }
+  ]
 }
