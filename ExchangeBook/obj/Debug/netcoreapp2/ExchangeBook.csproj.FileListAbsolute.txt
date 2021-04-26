@@ -40,3 +40,4 @@ C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2\Exchang
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2\ExchangeBook.genruntimeconfig.cache
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2\ExchangeBook.csproj.CopyComplete
 C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2\Razor\Views\Admin\Admin.cshtml.g.cs
+C:\Users\GENC\source\repos\eksiSozluk\ExchangeBook\obj\Debug\netcoreapp2\Razor\Views\Book\Details.cshtml.g.cs

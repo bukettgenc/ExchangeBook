@@ -3,14 +3,16 @@ using ExchangeBook.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ExchangeBook.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20210426114959_dene13")]
+    partial class dene13
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,7 +62,7 @@ namespace ExchangeBook.Migrations
                     b.Property<string>("BookName")
                         .IsRequired();
 
-                    b.Property<int>("CityId");
+                    b.Property<string>("City");
 
                     b.Property<bool>("IsDeleted");
 
@@ -69,8 +71,6 @@ namespace ExchangeBook.Migrations
                     b.Property<int>("UserId");
 
                     b.HasKey("BookId");
-
-                    b.HasIndex("CityId");
 
                     b.HasIndex("TypeId");
 
@@ -170,11 +170,6 @@ namespace ExchangeBook.Migrations
 
             modelBuilder.Entity("ExchangeBook.Models.MyBook", b =>
                 {
-                    b.HasOne("ExchangeBook.Models.City", "City")
-                        .WithMany("MyBooks")
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("ExchangeBook.Models.BookType", "BookType")
                         .WithMany("MyBooks")
                         .HasForeignKey("TypeId")

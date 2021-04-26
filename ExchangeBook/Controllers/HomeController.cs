@@ -1,6 +1,7 @@
 ﻿using ExchangeBook.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,18 +13,25 @@ namespace ExchangeBook.Controllers
     public class HomeController : Controller
     {
         Context db = new Context();
-        public IActionResult Index(int id, string book,string author,string type)
+        public IActionResult Index(int id, string book, string author,string type, int city)
         {
+            List<SelectListItem> values = (from x in db.Cities.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.CityName,
+                                               Value = x.CityId.ToString()
+                                           }).ToList();
+            ViewBag.values = values;
             var degerler = from d in db.MyBooks select d;
-            if (!string.IsNullOrEmpty(book) || !string.IsNullOrEmpty(author) || !string.IsNullOrEmpty(author))
+            if (!string.IsNullOrEmpty(book) || !string.IsNullOrEmpty(author) || !string.IsNullOrEmpty(type) || city!=0)
             {
-                degerler = degerler.Where(m => m.BookName.Contains(book) || m.BookAuthor.Contains(author) || m.TypeName.Contains(type));
+                degerler = degerler.Where(m => m.BookName.Contains(book) || m.BookAuthor.Contains(author) || m.BookType.TypeName.Contains(type) || m.City.CityId.Equals(city));
             }
-            List<MyBook> bookList = db.MyBooks.Where(x => x.UserId != id && x.IsDeleted == false).ToList();
-            ViewBag.bookList = bookList;
+            var degerlerr = degerler.Where(x => x.UserId != id && x.IsDeleted == false).ToList();
+            ViewBag.degerler = degerlerr;
             ViewBag.Id = id;
 
-            return View(degerler.ToList());
+            return View();
         }
 
         [Authorize]

@@ -20,9 +20,10 @@ namespace ExchangeBook.Models
 
         public string BookImage { get; set; }
         public bool IsDeleted { get; set; }
-
-        public string TypeName { get; set; }
-
+        public int CityId { get; set; }
+        public virtual City City { get; set; }
+        public int TypeId { get; set; }
+        public virtual BookType BookType { get; set; }
         public int UserId { get; set; }
         public virtual User User { get; set; }
         public ICollection<MyFav> MyFavs { get; set; }

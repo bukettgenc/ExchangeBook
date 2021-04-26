@@ -10,13 +10,25 @@ using System.IO;
 using Microsoft.AspNetCore.Http;
 using java.nio.file;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Hosting;
 
 namespace ExchangeBook.Controllers
 {
-    [Authorize] 
+    [Authorize]
     public class BookController : Controller
     {
         Context db = new Context();
+        private IHostingEnvironment hostingEnv;
+
+        public BookController(IHostingEnvironment env)
+
+        {
+
+            this.hostingEnv = env;
+
+        }
+
+
         private static Random random = new Random();
         public static string RandomString(int length)
         {
@@ -26,7 +38,7 @@ namespace ExchangeBook.Controllers
         }
         public IActionResult AddBook(int id)
         {
-           
+
             List<SelectListItem> values = (from x in db.BookTypes.ToList()
                                            select new SelectListItem
                                            {
@@ -38,13 +50,39 @@ namespace ExchangeBook.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AddBook(int id, MyBook book)
+        public IActionResult AddBook(int id, MyBook book, UploadModel upload)
         {
+            String random = RandomString(10);
+            var FileDic = "Files";
+
+            string FilePath = System.IO.Path.Combine(hostingEnv.WebRootPath, FileDic);
+
+            if (!Directory.Exists(FilePath))
+
+                Directory.CreateDirectory(FilePath);
+
+            var fileName =random+upload.File.FileName;
+           
+            var filePath = System.IO.Path.Combine(FilePath, fileName);
+
+
+
+            using (FileStream fs = System.IO.File.Create(filePath))
+
+            {
+
+                upload.File.CopyTo(fs);
+
+            }
+
+
+
+
             if (!ModelState.IsValid)
             {
                 return Redirect("~/Book/AddBook/" + id);
             }
-            book.BookImage = "img";
+            book.BookImage = "~/Files/"+fileName;
             book.UserId = id;
             ViewBag.Id = id;
 
@@ -69,6 +107,14 @@ namespace ExchangeBook.Controllers
             //    ViewBag.Message = "You have not specified a file.";
             //}
             return Redirect("~/Home/Profile/" + id);
+        }
+        public IActionResult Details(int id, int bookId, int person)
+        {
+            ViewBag.Id = id;
+            
+            MyBook detail = db.MyBooks.Where(x => x.BookId == bookId && x.UserId == person).SingleOrDefault();
+            ViewBag.detail = detail;
+            return View();
         }
     }
 }
