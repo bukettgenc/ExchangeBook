@@ -98,34 +98,38 @@
         <div class="search_box">
             @using (Html.BeginForm("Index", "Home", FormMethod.Get))
             {
-                <div class="row">
+            <div class="row">
 
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            @Html.TextBox("book", "", new { @class = "email_boton", @placeholder = "Kitap adına göre" })
-                        </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        @Html.TextBox("book", "", new { @class = "email_boton", @placeholder = "Kitap adına göre" })
                     </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            @Html.TextBox("author", "", new { @class = "email_boton", @placeholder = "Yazara göre ara" })
-                        </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        @Html.TextBox("author", "", new { @class = "email_boton", @placeholder = "Yazara göre ara" })
                     </div>
-
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <input type="submit" class="search_bt" value="Ara " />
-                        </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        @Html.TextBox("type", "", new { @class = "email_boton", @placeholder = "Türüne göre ara" })
                     </div>
-                    @*<div class="fashion_menu">
-                            <ul>
-                                <li class="active"><a href="#">Roman</a></li>
-                                <li><a href="#">Çocuk kitapları</a></li>
-                                <li><a href="#">Şiir</a></li>
-                                <li><a href="#">Hikaye</a></li>
-                                <li><a href="#">Deneme</a></li>
-                            </ul>
-                        </div>*@
-                </div>}
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <input type="submit" class="search_bt" value="Ara " />
+                    </div>
+                </div>
+                @*<div class="fashion_menu">
+            <ul>
+                <li class="active"><a href="#">Roman</a></li>
+                <li><a href="#">Çocuk kitapları</a></li>
+                <li><a href="#">Şiir</a></li>
+                <li><a href="#">Hikaye</a></li>
+                <li><a href="#">Deneme</a></li>
+            </ul>
+        </div>*@
+            </div>}
         </div>
     </div>
     <!-- search box end -->

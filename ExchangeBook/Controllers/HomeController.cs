@@ -12,12 +12,12 @@ namespace ExchangeBook.Controllers
     public class HomeController : Controller
     {
         Context db = new Context();
-        public IActionResult Index(int id, string book,string author)
+        public IActionResult Index(int id, string book,string author,string type)
         {
             var degerler = from d in db.MyBooks select d;
-            if (!string.IsNullOrEmpty(book) || !string.IsNullOrEmpty(author) )
+            if (!string.IsNullOrEmpty(book) || !string.IsNullOrEmpty(author) || !string.IsNullOrEmpty(author))
             {
-                degerler = degerler.Where(m => m.BookName.Contains(book) || m.BookAuthor.Contains(author));
+                degerler = degerler.Where(m => m.BookName.Contains(book) || m.BookAuthor.Contains(author) || m.TypeName.Contains(type));
             }
             List<MyBook> bookList = db.MyBooks.Where(x => x.UserId != id && x.IsDeleted == false).ToList();
             ViewBag.bookList = bookList;
